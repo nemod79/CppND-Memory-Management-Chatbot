@@ -225,9 +225,8 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
     _chatBotStack.SetRootNode(rootNode);
     //_chatBot->SetRootNode(rootNode);
     //rootNode->MoveChatbotHere(_chatBot);
-    std::cout << "Before ChatBot Copy assignemnt" << std::endl;
+    _chatBotStack.SetChatLogicHandle(this);
     rootNode->MoveChatbotHere(std::move(_chatBotStack));
-    
     ////
     //// EOF STUDENT CODE
 }

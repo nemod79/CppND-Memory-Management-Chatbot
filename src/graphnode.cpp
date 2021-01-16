@@ -39,7 +39,6 @@ void GraphNode::MoveChatbotHere(ChatBot &&chatbot)
 {
     //_chatBot = chatbot;
     _chatBot = chatbot;  
-    std::cout << "After ChatBot Copy assignemnt" << std::endl;
     _chatBot.SetCurrentNode(this);
 }
 
