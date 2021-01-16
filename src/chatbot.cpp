@@ -42,8 +42,6 @@ ChatBot::~ChatBot()
     }
 }
 
-//// STUDENT CODE
-////
 ChatBot::ChatBot(const ChatBot &source){
   	std::cout << "ChatBot Copy Constructor" << std::endl;
     
@@ -70,7 +68,6 @@ ChatBot& ChatBot::operator= (const ChatBot &source){
 
 ChatBot::ChatBot(ChatBot &&source){
   	std::cout << "ChatBot Move Constructor" << std::endl;
-    // moving here just pointer to the heap from source to dest
     _rootNode = source._rootNode;
     _currentNode = source._currentNode;
     _chatLogic = source._chatLogic;
@@ -84,17 +81,16 @@ ChatBot& ChatBot::operator= (ChatBot &&source){
 	if (this == &source)
     	return *this;
   
-    delete _image;	// free my own resources and then use source handler
+    delete _image;
     _image = source._image;
     _rootNode = source._rootNode;
     _currentNode = source._currentNode;
     _chatLogic = source._chatLogic;
 	source._image = NULL;
-    _chatLogic->SetChatbotHandle(this); // DAG
+    _chatLogic->SetChatbotHandle(this);
 	return *this;
 }
-////
-//// EOF STUDENT CODE
+
 
 void ChatBot::ReceiveMessageFromUser(std::string message)
 {
