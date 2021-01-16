@@ -59,14 +59,14 @@ ChatBot& ChatBot::operator= (const ChatBot &source){
     delete _image;
     _image = new wxBitmap();
 	*_image = *source._image;
-    _chatLogic->SetChatbotHandle(this); // DAG
+    //_chatLogic->SetChatbotHandle(this); // DAG
 	return *this;
 }
 
 ChatBot::ChatBot(ChatBot &&source){
   	std::cout << "ChatBot Move Constructor" << std::endl;
     // moving here just pointer to the heap from source to dest
-
+	_chatLogic->SetChatbotHandle(this);
     _image = source._image;
 	source._image = NULL;
 }
